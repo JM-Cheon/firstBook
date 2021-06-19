@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+        /* 전체 영역 */
+.sec1{ width: 900px; /* background-color: teal; */ height: 650px; margin: 0px auto;}
+
+.tab_viewer{border: 0.5px solid #D6D6D6;}
+
+table td, table th { border: 0.5px solid #D6D6D6; }
+
+/* 확대 축소 칸 테이블 */
+.sec1 .goback { width: 150px; height: 50px; text-align: center; }
+
+.sec1 .goback .gobackToMain {width: 70px;height: 40px;border-radius: 12pt; color: white; background-color:#89b5d0;}
+
+/* 제목있는 테이블 */
+.sec1 .title{width: 600px;text-align: center;}
+
+/* 제목 css */
+.sec1 .title .title_real{font-family: "맑은 고딕"; font-size: 20pt; }
+
+/* 다음 이전화 테이블 */
+.sec1 .nextback{width: 150px;height: 50px;padding-left: 30px;}
+
+/* 다음화 버튼 */
+.sec1 .nextback .nextbtn{ color: white; background-color: #89b5d0; width: 40px; height: 40px; border-radius: 70%;
+   						 font-size: 25pt;}
+   						 
+/* 이전화 버튼 */
+.sec1 .nextback .backbtn{ color: white; background-color: #89b5d0; width: 40px; height: 40px; border-radius: 70%;
+  						  font-size: 25pt;}
+  						  
+/* 뷰어 페이지 크기 지정  */
+.sec1 .page{ height: 550px; width: 450px; vertical-align: middle;}
+
+/* 첫 번째 페이지 내용 div */
+.sec1 .page .pagediv1{ height: 500px; width: 500px; /* padding-left: 5px; */padding-top: 20px; /* border: 1px solid black; */
+    					text-align: left; font-size: 15pt; line-height: 45px; font-family: "맑은 고딕"; position:relative;
+    					left : 40px;  top : -10px;}
+    					
+.sec1 .page .pagediv2{ height: 500px; width: 450px; /* padding-left: 5px; */ padding-top: 20px; /* border: 1px solid black; */
+    					text-align: left; font-size: 15pt; line-height: px; font-family: "맑은 고딕";}
+    					
+/* 뷰어 밑에 페이지 나타내는 테이블 */
+.sec1 .pageNum{height: 40px;text-align: center;}
+
+/* 뷰어페이지에 페이지를 나타내는 글 (nPg) */
+.sec1 .page1Num_real{ font-size: 13pt; font-family: "맑은 고딕";}
+.sec1 .page2Num_real{ font-size: 13pt; font-family: "맑은 고딕";}
+

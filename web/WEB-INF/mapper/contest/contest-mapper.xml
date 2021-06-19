@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllContestList">
+	  		SELECT
+       	           C.*
+              FROM COMPET_INFO C
+             WHERE COMPET_SSN = ?
+               AND COMPET_ACT_YN = 'Y'
+	</entry>
+	<entry key="rankEightconstList">
+	  		SELECT
+                   *
+              FROM (SELECT
+                           *
+                      FROM COMPET_INFO
+                     WHERE COMPET_SSN = ? 
+                     ORDER BY SCORE DESC
+                   )
+	</entry>
+	<entry key="selectAllContestListTime">
+               SELECT
+               COMPET_SSN
+                 FROM COMPET_INFO
+                GROUP BY COMPET_SSN
+	</entry>
+	<entry key="mainTopContest">
+                <![CDATA[
+                SELECT *
+				  FROM (SELECT 
+				               * 
+				          FROM COMPET_INFO 
+				         WHERE COMPET_SSN = ?
+				         ORDER BY SCORE DESC
+				       )
+	             WHERE ROWNUM <= 4
+	             ]]>
+	             
+	
+
+	</entry>
+</properties>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

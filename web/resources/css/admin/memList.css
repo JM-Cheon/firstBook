@@ -1,0 +1,26 @@
+@charset "UTF-8";
+	section { margin-left : 50px; }
+	
+	.memList {	 text-align : center; border-collapse: collapse; border-spacing: 0; border: 1px solid #444444;}	
+	.memList thead { background-color: red; color : white; }
+	.memList thead>tr>th { height : 40px; width: 100px;	}
+	.memList tbody>tr:nth-child(odd) { background-color: #CFCFCF; }
+	
+	
+	aside { position : absolute; left:1400px; right:100px; top:360px; height : 350px; width : 400px; border: 1px solid #444444;}
+	
+	.inbox { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; 
+        -moz-box-align: center; -ms-flex-align: center; align-items: center; /* 수직 정렬 */
+        -webkit-box-pack: center; -moz-box-pack: center; -ms-flex-pack: center; justify-content: center; /* 수평 정렬 */ }
+	
+	#memSearchFormHead { font-size : 20px; text-align : center; background-color: red;
+		color : white; width : 400px; height: 50px; }
+		
+	#memSearchFormBody { margin-top: 20px; }
+	
+	.memSearchTable { margin-top : 15px; text-align: center; border-spacing: 30px;}
+	
+	#t2 {position: absolute ; left:95px; top:150px;}
+	
+	.btn { font-size : 20px; border : 0px; outline : 0px; color : white; background-color: red; width: 200px;}
+	.btn:hover { background-color: #333333; color: white;}

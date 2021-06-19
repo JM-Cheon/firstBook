@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>firstbook</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+  	<filter-name>encoding</filter-name>
+  	<filter-class>com.lastbug.firstbook.common.filter.EncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding-type</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>encoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!--  오라클과의 연결 및 쿼리문 작성하는 구문과의 연결 -->
+  <context-param>
+    <param-name>connection-info</param-name>
+    <param-value>/WEB-INF/config/connection-info.properties</param-value>
+  </context-param>
+  <context-param>
+    <param-name>mapper-location</param-name>
+    <param-value>/WEB-INF/mapper/</param-value>
+  </context-param>
+  
+  <!--  에러페이지 관련(403, 404, 500) -->
+  <error-page>
+    <error-code>403</error-code>
+    <location>/WEB-INF/views/common/error403.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/views/common/error404.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/views/common/error500.jsp</location>
+  </error-page>
+  
+  <!--  파일 업로드 위치 -->
+    <context-param>
+  	<param-name>upload-location</param-name>
+  	<param-value>c:\\upload-files</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>max-file-size</param-name>
+  	<param-value>10000000</param-value>    <!-- 대략 1024 * 1024 * 10 byte (대략 10Mbyte -->
+  </context-param>
+    <context-param>
+  	<param-name>encoding-type</param-name>
+  	<param-value>UTF-8</param-value>
+  </context-param>
+</web-app>

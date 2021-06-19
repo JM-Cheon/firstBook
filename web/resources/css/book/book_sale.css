@@ -1,0 +1,46 @@
+.size_box {height: 200px;}
+
+/* 상단 책 소개 */
+#wrap .main_box {width:1100px; height: 500px; margin:0 auto; text-align:center;}
+#wrap .main_box .introduction{width:1000px; height: 500px; margin:0 auto;}
+/* 메인 이미지 */
+#wrap .main_box .introduction .book_img {width:300px; height: 500px; float:left;}
+
+/* 중간 내용 */
+.book_name{width:450px; height:500px; float:left;}
+#wrap .main_box .introduction .book_introduction {width:450px; height: 110px; text-align:left; border-bottom: 1px solid #000;}
+#wrap .main_box .introduction .book_introduction .free_shipping {width:80px; height: 25px; color:#fff; background:#ED1C24; text-align:center; font-family: 'Malgun Gothic'; font-size:14px; line-height:25px;}
+#wrap .main_box .introduction .book_introduction .book_title {line-height:50px; font-family: 'Malgun Gothic'; font-size:25px; font-weight:550; }
+#wrap .main_box .introduction .book_introduction .book_Information { font-family: 'Malgun Gothic'; font-size:13px; font-weight:400; }
+    
+#wrap .main_box .introduction .book_price {width:450px; height: 90px; text-align:left; float:left; border-bottom: 1px solid #000;}
+#wrap .main_box .introduction .book_price .price {line-height:40px; font-family: 'Malgun Gothic'; font-size:18px; font-weight:500;}
+#wrap .main_box .introduction .book_price .sale_price {float:left; width:100px;line-height:40px; font-family: 'Malgun Gothic'; font-size:24px; font-weight:550;}
+#wrap .main_box .introduction .book_price .font_red {float:left; color:#ED1C24; line-height:40px; font-family: 'Malgun Gothic'; font-size:24px; font-weight:550;}
+      
+#wrap .main_box .introduction .book_announcement {float:left; width:450px; height: 100px; padding-top:10px;}
+#wrap .main_box .introduction .book_announcement .shipping {float:left; width:450px; height: 100px; text-align:left;font-family: 'Malgun Gothic'; font-size:14px; line-height:20px;}
+#wrap .main_box .introduction .book_announcement > button {margin:5px 10px 10px 0;width:140px; height: 40px; background-color: #4B4B4B; color: white; font-size:19px; font-weight:500; }
+
+/* 이벤트 배너 */
+#wrap .main_box .introduction .event_banaer {float:left; width:200px; height: 358px; }
+#wrap .main_box .introduction .event_banaer .banner_img {float:right;width:150px; height: 358px; background-color: #4B4B4B; color:#fff; left : 10px;}
+
+/* 책 내용 소개 부분 */
+#wrap .book_content {margin:0 auto; width:1000px;}
+#wrap .book_content .book_content_bold {font-family: 'Malgun Gothic'; font-size:20px; font-weight:600; color:#ED1C24;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

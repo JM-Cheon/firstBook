@@ -1,0 +1,135 @@
+@charset "UTF-8";
+#wrap {margin: 0px auto; width: 100%;}
+.top_header {margin: 0px auto; width: 100%;}
+.top_main {margin: 0px auto; width: 1100px;}
+.top_footer {margin: 0px auto; width: 100%; background-color: #3A3A3A;}
+.top_footer_member {margin: 0px auto; width: 100%; border-top: 1px solid #ccc;}
+
+/* header */
+
+/* footer */
+.footer {width: 1100px; height: 250px; margin: 0 auto; padding: 50px 0;}
+.footer_logo {width: 150px; height: 150px; float: left; text-align: center; padding-top:10px;}
+.footer_contents {width: 800px; height: 150px; margin: 0px 25px; float: left; color: #fff; padding: 25px 0;}
+
+/* footer_member */
+.m_footer {height: 150px; margin: 30px auto; text-align: center; font-size: 13px; line-height: 30px;}
+.bold {font-weight: 700;}
+
+/* .tab-content {} */
+.tab_box {height: 300px; width: 215px; float: left; margin-top: 20px; background-color: blanchedalmond; border: 1px solid black;}
+.e_banner {margin-top: 80px; height: 300px; background-color: gray;}
+.book {margin: 50px auto; height: 350px;}
+.book_box {height: 300px; width: 215px; float: left; margin-top: 20px; background-color: blanchedalmond; border: 1px solid black;}
+.pop {width: 600px; height: 450px; z-index: 10; display: none; left: 50%; top: 100px; background-color: #fff; position: fixed; border: 1px solid #ccc;}
+.pop_title {width: 150px; height: 40px; text-align: center; margin: 25px auto; background-color: #ED1C24; line-height: 40px; color: white; border-radius: 10px; font-size: 15px;}
+.pop_close {position: absolute; top: 10px; left: 570px; font-size: 20px; font-weight: 600;}
+.pop_td {width: 300px; height: 60px; font-size: 15px; color: #000; padding: 0px 20px;}
+.pop_td > div {width: 100px; height: 25px; font-size: 15px; color: #fff; background-color: #ED1C24; float: right; border-radius: 15px; line-height: 25px;}
+.pop_button {width: 100px; height: 25px; font-size: 15px; color: #fff; background-color: #ED1C24; border-radius: 15px; line-height: 25px;}
+.pop_td > div > input {width: 20px; height: 20px; vertical-align: middle; margin-bottom: 2px;}
+.pop_td > img {width: 20px; height: 20px; vertical-align: middle; margin-bottom: 2px;}
+
+/* login, join */
+.login_form {text-align: center; margin: 200px auto; display: block;}
+.login_title {font-size: 23px; font-weight: 500; margin-bottom: 30px;}
+.searchId_input_box {width : 300px; height: 80px; border: 1px solid black; margin: 0px auto; font-size: 14px; text-align: center;}
+.login_input_box {width : 300px; height: 40px; border: 1px solid black; line-height: 40px; margin: 15px auto; font-size: 14px; text-align: left; padding-left: 5px;}
+.login_input_box > input {width:190px; height: 30px; float: right; margin: 5px 5px;}
+.email_input_box {width : 300px; height: 40px; border: 1px solid black; line-height: 40px; margin: 15px auto; font-size: 14px; text-align: left; padding-left: 5px;}
+.email_input_box > input {width:100px; height: 30px; margin: 5px 5px;}
+.email_input_box > select {width:100px; height: 30px; margin: 5px 5px;}
+.login_form > form > button {width:300px; height: 40px; background-color: #ED1C24; color: white; font-size:19px;}
+.login_form > form > button:hover {background-color: #333333; color: white;}
+.login_nav {width: 300px; height: 40px; margin: 20px auto; font-size: 14px; border-top: 1px solid #cccccc;}
+.login_nav > a {color : #333333; line-height: 50px;}
+.login_nav > a:hover {font-weight:700; color : #ED1C24;}
+.login_nav > ul {text-align: center;}
+.login_nav > ul > li {display: inline-block; line-height: 50px; margin: 0px 11px;}
+.login_nav > ul > li > a {color : #333333;}
+.login_nav > ul > li > a:hover {font-weight:700; color : #ED1C24;}
+
+/* mypage */
+.mypage {width: 1100px; height: 600px; border: 1px solid #d3d3d3; border-radius: 20px; margin-top: 200px; margin-bottom: 100px;}
+.my_nav {width: 150px; height: 600px; background-color: #ED1C24; border-radius: 20px 0 0 20px; padding: 10px; float: left;}
+.my_nav > ul {margin: 30px 10px; font-size: 15px; color: #fff; line-height: 30px; cursor:pointer}
+.my_nav > p {margin: 30px 10px; font-size: 15px; color: #fff; line-height: 30px;}
+.my_nav_line {border-bottom: 1px solid #fff;}
+.my_contents {width: 948px; height: 600px; float: left;}
+.my_contents div {display: none;}
+.my_contents div.on {display: block;}
+.my_home {margin: 0px auto; padding: 0px 20px;}
+.my_home > button {width:90px; height: 30px; background-color: #ED1C24; color: white; font-size:12px; font-weight: 600; margin: 20px 0 0 20px;}
+.my_home > button:hover {background-color: #333333; color: white;}
+.my_home > h2 {color: #000; clear: both; margin: 20px 0;}
+.my_home > p {color: #000; clear: both; margin-top: 20px; font-weight: 600; font-size: 19px; float: left;}
+.my_home > div {display: block; width: 900px; height: 200px;}
+.my_home > div > div {display: block; float: left; text-align: center; margin: 0px 20px 20px 20px; width: 140px;}
+.my_home > div > div > a > img {width: 120px; height: 160px;}
+.my_home > div > div > p {color: #000; font-weight: 600; font-size: 14px;}
+.my_lib {margin: 0px auto; padding: 0px 20px;}
+.my_lib > h2 {color: #000; clear: both; margin: 20px 0px;}
+.my_lib > div {display: block; width: 900px; height: 500px; overflow: auto;}
+.my_lib > div > div {display: block; float: left; text-align: center; margin: 0px 20px 20px 20px;}
+.my_lib > div > div > a > img {width: 120px; height: 160px;}
+.my_lib > div > div > p {color: #000; font-weight: 600; font-size: 14px;}
+.my_wish {margin: 0px auto; padding: 0px 20px;}
+.my_wish > h2 {color: #000; clear: both; margin: 20px 0px;}
+.my_wish > div {display: block; width: 900px; height: 500px; overflow: auto;}
+.my_wish > div > div {display: block; float: left; text-align: center; margin: 0px 20px 20px 20px;}
+.my_wish > div > div > a > img {width: 120px; height: 160px;}
+.my_wish > div > div > p {color: #000; font-weight: 600; font-size: 14px;}
+
+.my_member {margin: 0px auto; padding: 0px 20px;}
+.my_member > h2 {color: #000; margin: 20px 0px 0px 0px;}
+.my_member > p {float: left;}
+.my_member > form {height: 800px; width: 300px; margin: 0px auto;}
+.my_member > form > div {display: block;}
+.my_member > form > button {width:300px; height: 40px; background-color: #ED1C24; color: white; font-size:19px;}
+.my_member > form > button:hover {background-color: #333333; color: white;}
+.my_weblist {margin: 0px auto; padding: 0px 20px; text-align: center;}
+.my_weblist > h2 {color: #000; clear: both; margin: 20px 0px;}
+.my_weblist > div {display: block; text-align: center; margin: 0px auto; width: 600px; height: 500px; overflow: auto;}
+.my_weblist_title {width: 200px; height: 40px; background-color: red; color: white; font-size: 16px; font-weight: 600;}
+.my_weblist_body {font-size: 14px;  height: 25px; border-bottom: 1px solid #ccc;}
+
+.my_bye {margin: 0px auto; padding: 0px 20px; text-align: center;}
+.my_bye > div {display: block; margin: 150px auto; width: 300px; height: 400px;}
+.my_bye > div > h2 {color: #000; clear: both; margin: 40px 0px; font-size: 25px;}
+.my_bye > div > form > input {width:300px; height: 40px; text-align: center; margin: 20px auto; border: 1px solid black;}
+.my_bye > div > form > button {width:300px; height: 40px; background-color: #ED1C24; color: white; font-size:19px;}
+.my_bye > div > form > button:hover {background-color: #333333; color: white;}
+
+.my_basket {margin: 0px auto; padding: 0px 20px;}
+.my_basket > h2 {color: #000; clear: both; margin: 20px 0px;}
+.my_basket > div {display: block; float: left; text-align: center; margin: 0px 20px 20px 20px;}
+.my_basket > div > img {width: 120px; height: 160px;}
+.my_basket > div > p {color: #000; font-weight: 600; font-size: 14px;}
+.my_booklist {margin: 0px auto; padding: 0px 20px;}
+.my_booklist > h2 {color: #000; clear: both; margin: 20px 0px;}
+.my_booklist > div {display: block; float: left; text-align: center; margin: 0px 20px 20px 20px;}
+
+/* notice */
+.notice_area {width: 1100px; height: 900px; margin-top: 200px;}
+.left_nav {width: 230px; height: 350px; border: 1px solid #ccc; float: left;}
+.left_nav_top {width: 230px; height: 220px;}
+.left_nav_top > ul > li {margin: 20px 0px 0px 20px; font-size: 16px; font-weight: 600; color: #000;}
+.left_nav_top > ul > li > a {color: #000;}
+.left_nav_top > ul > li > a:hover {color: #ED1C24;}
+.left_nav_under {width: 230px; height: 130px; background-color: #ccc; line-height: 22px;}
+.left_nav_under > p {margin-left: 20px;}
+.notice {width: 800px; height: 800px; float: right; margin: 0px auto; border: 1px solid #ccc;}
+.notice_title_box {width: 800px; height: 50px; background-color: #ED1C24; color: #fff; text-align: center; line-height: 50px; font-size: 20px;}
+.notice_body_box {width: 800px;}
+.notice_body_box > table {margin: 40px; width: 720px;}
+.tdline {border-bottom: 1px solid #ccc; color: #000; font-size: 14px;}
+.tdline > img {width: 14px; height: 14px; float: right;}
+.notice_detail {border: 1px solid #ccc; font-size: 15px; color: #000; margin: 30px; width: 740px; height: 600px;}
+.board_button {text-align: center;}
+.board_button > button {margin: 0px 5px;}
+.board_button > button:hover {color: #ED1C24;}
+.tr_underline {border-bottom: 1px solid #ccc;}
+.reply-zone {overflow:auto; width: 738px; height: 145px;}
+.replyContent {width : 500px; height: 20px; border:1px solid #ccc; text-align: center;}
+.replySend {margin-left: 10px;width: 50px; height: 20px;}
+.replySend:hover {color: #ED1C24;}

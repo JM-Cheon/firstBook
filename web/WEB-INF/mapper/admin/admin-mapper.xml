@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllMemList">
+     	SELECT /* com.lastbug.firstbook.admin.model.dao.AdminDAO#selectAllMemList()*/
+     	*
+     	FROM MEM_INFO
+	</entry>
+	
+	<entry key="selectAllMemCount">
+     	SELECT /* com.lastbug.firstbook.admin.model.dao.AdminDAO#selectAllMemList()*/
+     	COUNT(*)
+     	FROM MEM_INFO
+	</entry>
+	
+	
+	<entry key="searchMemberNumber">
+		SELECT
+		*
+		FROM MEM_INFO A
+		WHERE A.MEM_NUM = ?
+	</entry>
+	<entry key="searchMemberName">
+		SELECT
+		*
+		FROM MEM_INFO A
+		WHERE A.MEM_NAME LIKE '%' || ? || '%'
+	</entry>
+		
+	<entry key="searchMemberEmail">
+		SELECT
+		*
+		FROM MEM_INFO A
+		WHERE A.MEM_EMAIL LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMemberBirthDate">
+		SELECT
+		*
+		FROM MEM_INFO A
+		WHERE A.MEM_BIRTHDATE LIKE '%' || ? || '%'
+	</entry>
+	<entry key="searchMemberEnrollDate">
+		SELECT
+		*
+		FROM MEM_INFO A
+		WHERE A.MEM_ENROLL_DATE LIKE '%' || ? || '%'
+	</entry>
+
+	<entry key="selectMemberBlockUnblock">
+		UPDATE
+		       MEM_INFO A
+		   SET A.MEM_BLOCK_YN = ?
+		     , A.MEM_BLOCK_DATE = ?
+		 WHERE A.MEM_NUM = ?
+	</entry>
+	
+	<entry key="member10sCount">
+		SELECT
+			   COUNT(FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12))
+	      FROM MEM_INFO
+	     WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12) BETWEEN 10 AND 19
+	</entry>
+	<entry key="member20sCount">
+		SELECT
+			   COUNT(FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12))
+	      FROM MEM_INFO
+	     WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12) BETWEEN 20 AND 29
+	</entry>
+	<entry key="member30sCount">
+		SELECT
+			   COUNT(FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12))
+	      FROM MEM_INFO
+	     WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12) BETWEEN 30 AND 39
+	</entry>
+	<entry key="member40sCount">
+		SELECT
+			   COUNT(FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12))
+	      FROM MEM_INFO
+	     WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12) BETWEEN 40 AND 49
+	</entry>
+	<entry key="member50sCount">
+		SELECT
+			   COUNT(FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12))
+	      FROM MEM_INFO
+	     WHERE FLOOR(MONTHS_BETWEEN(SYSDATE, MEM_BIRTHDATE)/12) BETWEEN 50 AND 59
+	</entry>
+	
+	<entry key="allWnCount">
+		SELECT
+		       COUNT(*)
+		  FROM WEB_NOV_INFO
+	</entry>
+
+
+	<entry key="fantasyCount">
+		SELECT
+		COUNT(CATEGORY_CODE)
+		FROM WEB_NOV_INFO
+		WHERE CATEGORY_CODE = 'F'
+	</entry>
+
+
+	<entry key="modernFatasyCount">
+		SELECT
+		COUNT(CATEGORY_CODE)
+		FROM WEB_NOV_INFO
+		WHERE CATEGORY_CODE = 'MF'
+	</entry>
+
+
+	<entry key="sportsCount">
+		SELECT
+		COUNT(CATEGORY_CODE)
+		FROM WEB_NOV_INFO
+		WHERE CATEGORY_CODE = 'SPO'
+	</entry>
+
+
+	<entry key="fantasyHistoryCount">
+		SELECT
+		COUNT(CATEGORY_CODE)
+		FROM WEB_NOV_INFO
+		WHERE CATEGORY_CODE = 'FH'
+	</entry>
+
+
+	<entry key="romanceCount">
+		SELECT
+		COUNT(CATEGORY_CODE)
+		FROM WEB_NOV_INFO
+		WHERE CATEGORY_CODE = 'ROM'
+	</entry>
+		
+	
+	
+	
+</properties>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllNovel">
+        SELECT 		/* com.lastbug.firstbook.novel.model.dao.NovelDAO#seletAllNovel() */
+               A.NOV_NUM
+             , A.CATEGORY_CODE
+             , A.NOV_TITLE
+             , A.NOV_AUTHOR
+             , A.NOV_PRICE
+             , A.NOV_PUBLISHER
+             , A.NOV_INFORM
+             , A.NOV_IMG_LOCATION
+             , A.ORDERABLE_YN
+             , A.NOV_AMOUNT
+             , B.CATEGORY_NAME
+          FROM NOV_INFO A
+          JOIN GENRE_CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
+	</entry>
+	
+	
+	
+	<entry key="selectNovelDetail">
+        SELECT 		/* com.lastbug.firstbook.novel.model.dao.NovelDAO#selectNovelDetail() */
+               A.NOV_NUM
+             , A.CATEGORY_CODE
+             , A.NOV_TITLE
+             , A.NOV_AUTHOR
+             , A.NOV_PRICE
+             , A.NOV_PUBLISHER
+             , A.NOV_INFORM
+             , A.NOV_IMG_LOCATION
+             , A.ORDERABLE_YN
+             , A.NOV_AMOUNT
+             , B.CATEGORY_NAME
+          FROM NOV_INFO A
+          JOIN GENRE_CATEGORY B ON (A.CATEGORY_CODE = B.CATEGORY_CODE)
+         WHERE A.NOV_NUM = ?
+	</entry>
+	<entry key="selectWebNovelallChapter">
+		SELECT  	/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectWebNovelallChapter() */
+		       A.WEB_NOV_NUM
+		     , A.CHAP_NUM
+		     , A.CHAP_WRITTEN_DATE
+		     , A.CHAP_READ_OR_NOT
+		  FROM WEB_NOV_CHAP_SEARCH A
+		  JOIN WEB_NOV_INFO B ON (A.WEB_NOV_NUM = B.WEB_NOV_NUM)
+		  JOIN WEB_NOV_CHAP_NUM C ON (A.CHAP_NUM = C.CHAP_NUM)
+		 WHERE B.WEB_NOV_NUM = ?
+		 ORDER BY A.CHAP_NUM ASC
+	</entry>
+	<entry key="searchWebNovelCount">
+	    SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#searchWebNovelCount() */
+               COUNT(*)
+          FROM WEB_NOV_CONTENT_DETAIL A
+         WHERE A.WEB_NOV_NUM = ?
+           AND A.CHAP_NUM = ?
+	</entry>
+	
+	<entry key="selectPerChap">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectPerChap()*/
+               C.WEB_NOV_NUM
+             , C.CHAP_NUM
+             , C.WEB_NOV_PAGE_NUM
+             , C.WEB_NOV_PAGE_CONTENT
+          FROM (SELECT ROWNUM RNUM
+                     , WEB_NOV_NUM
+                     , CHAP_NUM
+                     , WEB_NOV_PAGE_NUM
+                     , WEB_NOV_PAGE_CONTENT
+                  FROM (SELECT 
+                               A.WEB_NOV_NUM
+                             , A.CHAP_NUM
+                             , A.WEB_NOV_PAGE_NUM
+                             , A.WEB_NOV_PAGE_CONTENT
+                          FROM Web_CONTENT A
+                         ORDER BY A.WEB_NOV_PAGE_NUM ASC
+                      ) B
+                 WHERE B.WEB_NOV_NUM = ?
+                   AND B.CHAP_NUM = ?
+              ) C
+       WHERE C.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchTitle">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#searchTitle() */
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_INFORM
+             , B.CATEGORY_NAME
+          FROM WEB_NOV_INFO A
+          JOIN GENRE_CATEGORY B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+         WHERE A.WEB_NOV_NUM = ?	
+	</entry>
+	<entry key="incrementWebnovelCount">
+	    UPDATE 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#incrementWebnovelCount() */
+               WEB_NOV_INFO A
+       SET A.WEB_NOV_COUNT = (SELECT B.WEB_NOV_COUNT
+                              FROM WEB_NOV_INFO B
+                             WHERE B.WEB_NOV_NUM = ?
+                           ) + 1
+     WHERE A.WEB_NOV_NUM = ?
+	</entry>
+	<entry key="searchWebNovelCount">
+	    SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#searchWebNovelCount() */
+               COUNT(*)
+          FROM WEB_NOV_INFO A
+	</entry>
+</properties>

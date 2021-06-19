@@ -1,0 +1,11 @@
+@charset "UTF-8";
+	figure { text-align: left;}
+	#date { font-size:20px;  position:absolute; left:500px; top:50px;}
+	#a1 {  background-color:silver; position: absolute; width: 1474px; height: 182px; left: 223px; top: 165px; }
+	#a1 table { position:absolute; left:450px; top:70px; text-align : center; border: 1px solid #444444; border-collapse: collapse; border-spacing: 30px;}
+	#a1 table>thead { background-color: red; }
+	#a2 { position: absolute; left: 252px; top: 385px;}
+	#a3 { position: absolute; left: 1051px; top: 380px; }
+	#a3 table { margin-right: 50px; border: 1px solid #444444;}
+	#a4 { position: absolute; left: 252px; top: 864px; }
+	#a5 { position: absolute; width: 675px; height: 271px; left: 1022px; top: 864px; }

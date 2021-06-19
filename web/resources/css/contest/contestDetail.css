@@ -1,0 +1,85 @@
+
+.size_box {height: 120px;}
+.section1{ width: 1100px; height: 350px; border-bottom: 1px solid #333333; margin: 0 auto;}
+.section1_content{ width: 900px; height: 350px; margin: 0 auto;}
+.section1_content_left{float: left; width: 250px; height: 350px; text-align: center;}
+.section1_content_right{float: left; width: 650px; height: 350px;  position: relative; left: 30px;}
+.font{color: rgb(0, 0, 0); font-family: 'Malgun Gothic'; }
+.section1_content_right_first{ font-size: 26px; font-weight: 550; width: 550px; height: 60px;}
+.section1_content_right_second{ font-size: 15px; font-weight: 400; width: 550px; height: 80px;}
+.section1_content_right_third{ font-size: 19px; font-weight: 600; width: 550px; height: 50px;}
+.section1_content_right_fourth{ font-size: 15px; font-weight: 400; width: 550px; height: 90px;}
+.section1_content_right_five{ width: 550px; height: 70px; }
+.firstBtn {
+	width: 140px;
+	height: 40px;
+	border-radius: 30px;
+	background-color: #ED1C24;
+	color: white;
+	font-weight: bolder;
+	border-color: ED1C24;
+	border: none;
+}
+.secondBtn{
+    float: right;
+    width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	background-color: #ED1C24;
+	color: white;
+	font-weight: bolder;
+	border-color: ED1C24;
+	border: none;
+    font-size: 30px;
+}
+.label_none{display:none}
+
+
+.section2{ width: 1100px; border-bottom: 1px solid #333333; margin: 0 auto;}
+.section2_title{width: 1100px; height: 50px;line-height: 50px; font-size: 17px; font-weight: 400;margin: 0 auto;}
+.section2_content{width: 1100px; height:230px;}
+.section2_content_img{float:left;width: 160px; height:230px;}
+.section2_content_main{float:left;width: 750px; height:230px; line-height: 25px; position: relative;top: 20px; left: 30px;}
+.section2_content_bt{float:left; width: 190px; height:230px;}
+.section2_content_btn {
+	width: 140px;
+	height: 40px;
+	border-radius: 30px;
+	background-color: #ED1C24;
+	color: white;
+	font-weight: bolder;
+	border-color: #ED1C24;
+	border: none;
+    font-size: 17px;
+    font-weight: 400;
+    position: relative;
+    top: 190px;
+}
+.section2_space {width: 1100px; height:50px; }
+
+.section3_space {width: 1100px; height:30px; }
+.section3{ width: 1100px; margin: 0 auto;}
+.section3_title{height: 100px;line-height: 80px; font-size: 30px; font-weight: 600;}
+.section3_writing{width: 1100px;height: 50px; background: #FAFAFA; border: 1px solid #D6D6D6;}
+.section3_writing_box{float:left;width: 950px; height: 50px;}
+.section3_writing_text{ 
+    width: 950px;
+    height: 50px;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: inherit;
+    resize: none;
+}
+.section3_writing_button{float:left; width: 150px; height: 50px; background: #D6D6D6; }
+.button{width: 150px; height: 50px; border: none; background: none; font-size: 18px;color: white;}
+.button:hover{color: #ED1C24;}
+
+/* 댓글 보기 현황 */
+.section3_writing_view{width: 1100px; height: 100px; margin: 0 auto;}
+.section3_writing_view_first{width: 1100px; height: 40px; }
+.section3_nickname{float: left; width: 1040px; height: 40px; font-weight: 600; font-size: 18px;}
+.section3_time{float: left; width: 60px; height: 40px; color: #ED1C24; text-align: right; }
+.section3_content{width: 1100px; height: 40px; color: #535353;  }

@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+/* 1화보기 부분 크기 지정 */
+.sec1 {	width: 650px;height: 300px;margin: 0px auto;}
+
+/* 1화부터 마지막화 까지 부분 크기 지정 */
+.sec2 {	width: 800px;height: auto;margin: 0px auto;
+	/* background-color: yellow; */
+}
+
+/* 댓글다는 부분 크기 지정 */
+.sec3 {	width: 800px;height: 300px;margin: 0px auto;}
+
+/* 메인 사진 들어가는 테이블 */
+.tab_main { margin: 0px auto;height: 270px;}
+
+/* 메인사진들어가는 칸 */
+.tab_main .main_img {width: 150px;height: 200px;text-align: center;}
+
+/* 메인사진 크기 */
+.tab_main .main_img_real {width: 190px;height: 250px;border-radius: 15%;}
+
+/* 중간 여유부분 */
+.tab_main .space {width: 50px;}
+
+/* 사진을 더 넣기 위한 여유공간 */
+.tab_main .space2 {	height: 30px;}
+
+/* 메인 설명글 div */
+.tab_main .title_div { height: 110px;width: auto;}
+
+.tab_main .subtitle_div {height: 80px;width: auto;}
+
+/* 메인 설명글  */
+.tab_main .title {font-family: "맑은 고딕";font-weight: 600;line-height: 10px;	font-size: 20px;}
+
+/* 메인 부연 설명글 */
+.tab_main .title_small {font-family: "맑은 고딕";font-weight: 200;}
+/* line-height: 20px; */
+
+/* sub메인 글 */
+.tab_main .subtitle_div .subtitle {font-family: "맑은 고딕";font-weight: 700;line-height: 10px;font: 10px;}
+
+/* sub메인 부연 글 */
+.tab_main .subtitle_small {	font-family: "맑은 고딕";font-weight: 200;	line-height: 25px;}
+
+/* 첫화보기 버튼 */
+.tab_main .firstBtn {width: 140px;height: 30px;border-radius: 10px;	background-color: #ED1C24;color: white;	font-weight: bolder;
+					border-color: #ED1C24;border: none;}
+
+/* 좋아요 버튼 */
+.tab_main .likeBtn {  
+    width: 40px;
+	height: 30px;
+	border-radius: 40px;
+	background-color: #ED1C24;
+	color: white;
+	font-weight: bolder;
+	border-color: ED1C24;
+	border: none;
+    font-size: 25px;
+    position : relative;
+    top : 3px;}
+	
+/* 매주화요일 연재 */
+.everynday {font-family: "맑은 고딕";font-size: larger;}
+
+/* 1화부터 있는 사진 테이블칸 */
+.tab_mid .chap_img {width: 120px;height: 170px;	text-align: center;}
+
+/* 1화부터 있는 사진 */
+.tab_mid .chap_img .chap_img_real {	width: 110px;height: 160px;	border-radius: 10px;}
+
+/* 프롤로그 있는 테이블 크기 */
+.tab_mid .prolog {width: 580px;}
+
+/* 프롤로그 글 */
+.tab_mid .prolog_text {	position: relative;	left: 10px;	top: -55px;	font-family: "맑은 고딕";	font-weight: 600;}
+
+/* 프롤로그 날짜 */
+.tab_mid .chap_date {position: relative;left: 30px;	top: -35px;	font-weight: 200;font-family: "맑은 고딕";}
+
+/* 무료보기 칸  */
+.tab_mid .freeBtn {width: 100px;text-align: center;}
+
+/* 무료보기 버튼 css */
+.tab_mid .freeBtn .freebtn_real {position: relative;top: 65px;width: 140px;height: 30px;border-radius: 10px;background-color: #ED1C24;
+								color: white;	font-weight: bolder;border-color: #ED1C24;border: none;}
+
+/*--------------ajax 댓글 css ----------------------*/
+.div_reply_ajax { width : 800px;}
+
+
+/* 달려진 댓글 아이디  테이블*/
+.sec3 .repliedId_ajax {width: 730px;}
+
+
+/* 달려진 댓글 아이디 내용 */
+.sec3 .repliedId_real_ajax {font-family: "맑은 고딕";height: 20px;padding-left: 10px;padding-top: 2px;font-weight: 600;
+}
+
+/* 댓글 달린 시간 테이블 */
+.sec3 .repliedtime_ajax {	width: 200px;text-align: right;padding-right: 5px;}
+
+/* 댓글 달린 시간 내용 */
+.sec3  .repliedtime_real_ajax {color: #ED1C24;font-weight: 500;}
+
+.sec3 .replied_ajax {	height: 70px;}
+
+.sec3 .replied_real_ajax {font-family: "맑은 고딕";height: 20px;	padding-left: 10px;	position: relative;	top: -12px;}
+
+
+
+/* 댓글이라는 것 */
+.sec3 .reply {font-size: 20pt;font-family: "맑은 고딕";}
+
+/* 등록버튼 */
+.sec3 .repliedbtn {	height: 90px;background-color: rgb(173, 196, 130);width: 90px;float: right;color: white;
+					border-radius: 8px;}
+
+/* 달려진 댓글 아이디  테이블*/
+.sec3 .tab_reply .repliedId {width: 730px;}
+/* 댓글 다는 div */
+.sec3 .replydiv {width: 700px;float: left;}
+
+/* 달려진 댓글 아이디 내용 */
+.sec3 .tab_reply .repliedId_real {font-family: "맑은 고딕";height: 20px;padding-left: 10px;padding-top: 2px;font-weight: 600;
+}
+
+.sec3 .tab_reply {clear: both;}
+
+.sec3 .replytext {resize: none;	width: 100%;
+}
+/* 댓글 달린 시간 테이블 */
+.sec3 .tab_reply .repliedtime {	width: 70px;text-align: right;padding-right: 5px;}
+
+/* 댓글 달린 시간 내용 */
+.sec3 .tab_reply .repliedtime_real {color: #ED1C24;font-weight: 500;}
+
+.sec3 .tab_reply .replied {	height: 70px;}
+
+.sec3 .tab_reply .replied_real {font-family: "맑은 고딕";height: 20px;	padding-left: 10px;	position: relative;	top: -12px;}
+

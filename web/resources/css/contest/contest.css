@@ -1,0 +1,57 @@
+
+.size_box {height: 100px;}
+.section {position:relative; margin:0 auto; width: 1100px; height: 1212px; background: url("/firstbook/resources/image/contest/contest.jpg") no-repeat 50% 50%;}
+.section2 {margin:0 auto; width: 1100px; height: 1000px; }
+.tupyo {float: left;text-align:center; width: 150px; height: 500px; background:#ED1C24; color: white; font-family: 'Malgun Gothic'; font-size:27px; font-weight:700; padding-top: 150px;line-height: 50px;}
+.tupyoa{color: white;}
+
+.work_tupyo{float: left;  width: 950px; height: 500px; }
+.work_row1{width: 950px; height:1000px; padding-top: 10px;}
+
+.work { height:270px; float: left; margin-left: 90px; width: 125px; font-family: 'Malgun Gothic'; font-size:15px; line-height: 20px; }
+.work_button {background: #474747; width: 80px; height: 35px; color: white; font-size: 15px;}
+.work_title{height:40px;}
+
+.rank{width: 200px; height:25; position:absolute; font-family: 'Malgun Gothic'; font-size:15px; color: white;}
+
+.label_none{display:none}
+
+/* 16강 */
+.rank1{ top:220px; left:190px; } /* 80 27  */
+.rank2{ top:247px; left:190px; }
+.rank3{ top:300px; left:190px; }
+.rank4{ top:327px; left:190px; }
+.rank5{ top:390px; left:190px; }
+.rank6{ top:417px; left:190px; }
+.rank7{ top:470px; left:190px; }
+.rank8{ top:497px; left:190px; }
+.rank9{ top:605px; left:190px; }
+.rank10{ top:632px; left:190px; }
+.rank11{ top:685px; left:190px; }
+.rank12{ top:712px; left:190px; }
+.rank13{ top:775px; left:190px; }
+.rank14{ top:802px; left:190px; }
+.rank15{ top:855px; left:190px; }
+.rank16{ top:882px; left:190px; }
+
+/* 8강 */
+.rank17{ top:340px; left:455px; }
+.rank18{ top:365px; left:455px; }
+.rank19{ top:473px; left:455px; }
+.rank20{ top:498px; left:455px; }
+.rank21{ top:605px; left:455px; }
+.rank22{ top:630px; left:455px; }
+.rank23{ top:735px; left:455px; }
+.rank24{ top:760px; left:455px; }
+
+/* 4강 */
+.rank25{ top:408px; left:720px; }
+.rank26{ top:433px; left:720px; }
+.rank27{ top:670px; left:720px; }
+.rank28{ top:695px; left:720px; }
+
+/* 결승전 */
+.rank29{width: 200px; height:25; position:absolute; font-family: 'Malgun Gothic'; font-size:20px; color: white; top:1025px; left:280px; }
+.rank30{width: 200px; height:25; position:absolute; font-family: 'Malgun Gothic'; font-size:20px; color: white; top:1025px; left:650px; }
+
+

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="adminSelectAllNovel">
+     	SELECT /* com.lastbug.firstbook.admin.webnovel.model.dao.AdminWebNovelDAO#adminSelectAllNovel()*/
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.WEB_NOV_INFORM
+             , A.CATEGORY_CODE
+             , A.WEB_NOV_PUBLISHER
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_IMG_LOCATION
+             , A.FINISHED_OR_NOT
+             , A.WEB_NOV_IS_OPEN
+          FROM WEB_NOV_INFO A
+	</entry>
+	<entry key="insertNewWebnovel">
+	    INSERT /* com.lastbug.firstbook.admin.webnovel.model.dao.AdminWebNovelDAO#insertNewWebnovel()*/
+	      INTO WEB_NOV_INFO A
+             (
+               A.WEB_NOV_NUM
+             , A.CATEGORY_CODE
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.WEB_NOV_PUBLISHER
+             , A.WEB_NOV_INFORM
+             , A.WEB_NOV_IMG_LOCATION
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_IS_OPEN
+         	 )
+             VALUES
+            (  
+               SEQ_WEB_NOV_INFO.NEXTVAL
+             , ?
+             , ?
+             , ?
+             , ?
+             , ?
+             , ?
+             , ?
+             , ?
+            )
+	</entry>
+	<entry key="adminSelectWebNovelDetail">
+     	SELECT /* com.lastbug.firstbook.admin.webnovel.model.dao.AdminWebNovelDAO#adminSelectWebNovelDetail()*/
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.WEB_NOV_INFORM
+             , A.CATEGORY_CODE
+             , A.WEB_NOV_PUBLISHER
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_IMG_LOCATION
+             , A.FINISHED_OR_NOT
+             , A.WEB_NOV_IS_OPEN
+          FROM WEB_NOV_INFO A
+         WHERE A.WEB_NOV_NUM = ?
+	</entry>
+	
+	<entry key="WebNovelCloseOrOpen">
+		  UPDATE
+		       WEB_NOV_INFO A
+		   SET A.WEB_NOV_IS_OPEN = ?		    
+		 WHERE A.WEB_NOV_NUM = ?	
+	</entry>
+	<entry key="WebNovelModify">
+	       UPDATE WEB_NOV_CONTENT_DETAIL
+              SET WEB_NOV_PAGE_CONTENT = (CASE WHEN WEB_NOV_PAGE_NUM = ? THEN ?
+                                               WHEN WEB_NOV_PAGE_NUM = ? THEN ?               
+                                          END)
+            WHERE WEB_NOV_NUM = ? 
+              AND CHAP_NUM = ? 
+              AND WEB_NOV_PAGE_NUM BETWEEN ? AND ?
+	
+	</entry>
+	
+</properties>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

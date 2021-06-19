@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+ 
+
+/* 테두리기준 */
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Malgun Gothic";
+  background: #ffffff;
+  color: #4c4c4c;
+  font-size: 12px;
+}
+
+ .cf:after {
+  content: " ";
+  display: block;
+  clear: both;
+} 
+
+ ol, ul, li, dl {
+  list-style:none;
+} 
+
+a {
+  text-decoration: none;
+}
+
+/* 텍스트 */
+
+h1 {
+  visibility: hidden;
+}
+
+/* 테이블 */
+
+table {
+  border-collapse: collapse;
+}
+
+ input {
+  -moz-appearance: none;
+  border: none;
+} 
+
+button{
+  background: inherit;
+  border:none;
+  box-shadow:none;
+  border-radius:0;
+  padding:0;
+  overflow:visible;
+  cursor:pointer;
+}
+  

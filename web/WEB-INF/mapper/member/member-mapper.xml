@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="insertMember">
+	    INSERT /* com.lastbug.firstbook.member.model.dao.MemberDAO#insertMember() */
+	      INTO MEM_INFO A
+	    (
+	      MEM_NUM
+	    , MEM_NAME
+	    , MEM_ID
+	    , MEM_PWD
+	    , MEM_EMAIL
+	    , MEM_ADDRESS
+	    , MEM_BIRTHDATE
+	    , MEM_WITHDRAW_DATE
+	    , MEM_CLASS
+	    , MEM_BLOCK_DATE
+	    , MEM_ENROLL_DATE
+	    )
+	    VALUES
+	    (
+	      SEQ_MEM_NO.NEXTVAL
+	    , ?
+	    , ?
+	    , ?
+	    , ?
+	    , ?
+	    , ?
+	    , NULL
+	    , '회원'
+	    , NULL
+	    , SYSDATE
+	    )
+	</entry>
+	<entry key="idCheck">
+	    SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#idCheck() */
+	           A.MEM_ID
+	      FROM MEM_INFO A
+	     WHERE A.MEM_ID = ?
+	</entry>
+	<entry key="selectLoginMember">
+	    SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectLoginMember() */
+		       A.MEM_NUM
+		     , A.MEM_NAME
+		     , A.MEM_ID
+		     , A.MEM_PWD
+		     , A.MEM_EMAIL
+		     , A.MEM_ADDRESS
+		     , A.MEM_BIRTHDATE
+		     , A.MEM_LOGIN_COUNT
+		     , A.MEM_COIN
+		     , A.MEM_CAN_VOTE_YN
+		     , A.MEM_WITHDRAW_YN
+		     , A.MEM_WITHDRAW_DATE
+		     , A.MEM_CLASS
+		     , A.MEM_BLOCK_YN
+		     , A.MEM_BLOCK_DATE
+		     , A.MEM_ENROLL_DATE
+		     , A.MEM_WEEKLY_COIN_YN
+		  FROM MEM_INFO A
+		 WHERE A.MEM_WITHDRAW_YN = 'N'
+		   AND A.MEM_BLOCK_YN = 'N'
+		   AND A.MEM_ID = ?
+	</entry>
+	<entry key="selectEncryptedPwd">
+	    SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectEncryptedPwd() */
+	           A.MEM_PWD
+	      FROM MEM_INFO A
+	     WHERE A.MEM_WITHDRAW_YN = 'N'
+	       AND A.MEM_BLOCK_YN = 'N'
+	       AND A.MEM_ID = ?
+	</entry>
+
+	<entry key="selectUseCoin">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectUseCoin() */
+		       A.COIN_USE_NUM
+		     , A.WEB_NOV_NUM
+		     , A.MEM_NUM
+		     , A.COIN_USE_DATE
+		     , A.COIN_USAGE
+		     , A.CHAPTER_NUM
+		     , C.CATEGORY_CODE
+		     , C.WEB_NOV_TITLE
+		     , C.WEB_NOV_AUTHOR
+		     , C.WEB_NOV_PUBLISHER
+		     , C.WEB_NOV_INFORM
+		     , C.WEB_NOV_IMG_LOCATION
+		     , C.DAY_OF_WEEK
+		     , C.WEB_NOV_IS_OPEN
+		     , C.FINISHED_OR_NOT
+		  FROM COIN_USE_HIS A
+		  JOIN WEB_NOV_INFO C ON (C.WEB_NOV_NUM = A.WEB_NOV_NUM)
+		 WHERE A.MEM_NUM = ?
+		   AND C.WEB_NOV_IS_OPEN = 'Y'
+		 ORDER BY A.WEB_NOV_NUM, A.CHAPTER_NUM DESC
+	</entry>
+	<entry key="updateMember">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#updateMember() */
+		       MEM_INFO A
+		   SET A.MEM_NAME = ?
+		     , A.MEM_PWD = ?
+		     , A.MEM_EMAIL = ?
+		     , A.MEM_ADDRESS = ?
+		     , A.MEM_BIRTHDATE = ?
+		 WHERE A.MEM_ID = ?
+	</entry>
+	<entry key="deleteMember">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#deleteMember() */
+		       MEM_INFO A
+		   SET A.MEM_WITHDRAW_YN = 'Y'
+		     , A.MEM_WITHDRAW_DATE = SYSDATE
+		 WHERE A.MEM_ID = ?
+	</entry>
+	<entry key="selectWishlist">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectWishlist() */
+		       A.WEB_NOV_NUM
+		     , A.MEM_NUM
+		     , A.WISHLIST_DATE
+		     , B.CATEGORY_CODE
+		     , B.WEB_NOV_TITLE
+		     , B.WEB_NOV_AUTHOR
+		     , B.WEB_NOV_PUBLISHER
+		     , B.WEB_NOV_INFORM
+		     , B.WEB_NOV_IMG_LOCATION
+		     , B.DAY_OF_WEEK
+		     , B.WEB_NOV_IS_OPEN
+		     , B.FINISHED_OR_NOT
+		  FROM WISH_LIST A
+		  JOIN WEB_NOV_INFO B ON (B.WEB_NOV_NUM = A.WEB_NOV_NUM)
+		 WHERE A.MEM_NUM = ?
+		   AND B.WEB_NOV_IS_OPEN = 'Y'
+		 ORDER BY A.WISHLIST_DATE DESC
+	</entry>
+	<entry key="incrementLoginCount">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#incrementLoginCount() */
+		       MEM_INFO A
+		   SET A.MEM_LOGIN_COUNT = MEM_LOGIN_COUNT + 1
+		 WHERE A.MEM_ID = ?
+	</entry>
+	<entry key="incrementFreeCoin">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#incrementFreeCoin() */
+		       MEM_INFO A
+		   SET A.MEM_COIN = A.MEM_COIN + 20
+		   	 , A.MEM_WEEKLY_COIN_YN = 'N'
+		 WHERE A.MEM_NUM = ?
+	</entry>
+	<entry key="selectMember">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectMember() */
+		       A.MEM_NUM
+		     , A.MEM_NAME
+		     , A.MEM_ID
+		     , A.MEM_PWD
+		     , A.MEM_EMAIL
+		     , A.MEM_ADDRESS
+		     , A.MEM_BIRTHDATE
+		     , A.MEM_LOGIN_COUNT
+		     , A.MEM_COIN
+		     , A.MEM_CAN_VOTE_YN
+		     , A.MEM_WITHDRAW_YN
+		     , A.MEM_WITHDRAW_DATE
+		     , A.MEM_CLASS
+		     , A.MEM_BLOCK_YN
+		     , A.MEM_BLOCK_DATE
+		     , A.MEM_ENROLL_DATE
+		     , A.MEM_WEEKLY_COIN_YN
+		  FROM MEM_INFO A
+		 WHERE A.MEM_WITHDRAW_YN = 'N'
+		   AND A.MEM_NUM = ?
+	</entry>
+	<entry key="selectTotalCount">
+		SELECT  /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectTotalCount() */
+		       COUNT(*)
+		  FROM NOTICE A
+		 WHERE A.NOTICE_STATUS = 'Y'
+	</entry>
+	<entry key="selectNoticeList">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectNoticeList() */
+		       A.RNUM
+		     , A.NOTICE_NUM
+		     , A.NOTICE_DATE
+		     , A.NOTICE_NAME
+		     , A.NOTICE_VIEW_COUNT
+		     , A.NOTICE_CONTENT
+		     , A.NOTICE_STATUS
+		  FROM (SELECT ROWNUM RNUM
+		             , B.NOTICE_NUM
+		             , B.NOTICE_DATE
+		             , B.NOTICE_NAME
+		             , B.NOTICE_VIEW_COUNT
+		             , B.NOTICE_CONTENT
+		             , B.NOTICE_STATUS
+		          FROM (SELECT C.NOTICE_NUM
+				             , C.NOTICE_DATE
+				             , C.NOTICE_NAME
+				             , C.NOTICE_VIEW_COUNT
+				             , C.NOTICE_CONTENT
+				             , C.NOTICE_STATUS
+				          FROM NOTICE C
+				         WHERE C.NOTICE_STATUS = 'Y'
+				         ORDER BY C.NOTICE_NUM DESC
+		               ) B
+		       ) A
+		 WHERE A.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="incrementNoticeCount">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#incrementNoticeCount() */
+			   NOTICE A
+		   SET A.NOTICE_VIEW_COUNT = (SELECT B.NOTICE_VIEW_COUNT
+								   FROM NOTICE B
+ 								  WHERE B.NOTICE_NUM = ?
+ 								) + 1
+		 WHERE A.NOTICE_NUM = ?
+	</entry>
+	<entry key="selectNoticeDetail">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectNoticeDetail() */
+		       A.NOTICE_NUM
+		     , A.NOTICE_DATE
+		     , A.NOTICE_NAME
+		     , A.NOTICE_VIEW_COUNT
+		     , A.NOTICE_CONTENT
+		     , A.NOTICE_STATUS
+		  FROM NOTICE A
+		 WHERE A.NOTICE_NUM = ?
+	</entry>
+	<entry key="selectFAQTotalCount">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectFAQTotalCount() */
+		       COUNT(*)
+		  FROM FAQ A
+	</entry>
+	<entry key="selectFAQList">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectFAQList() */
+		       A.RNUM
+		     , A.POST_NUM
+		     , A.FAQ_POST_TITLE
+		     , A.FAQ_POST_CONTENT
+		  FROM (SELECT ROWNUM RNUM
+		             , B.POST_NUM
+		             , B.FAQ_POST_TITLE
+		             , B.FAQ_POST_CONTENT
+		          FROM (SELECT C.POST_NUM
+				             , C.FAQ_POST_TITLE
+				             , C.FAQ_POST_CONTENT
+				          FROM FAQ C
+				         ORDER BY C.POST_NUM DESC
+		               ) B
+		       ) A
+		 WHERE A.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectFaqDetail">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectFaqDetail() */
+		       A.POST_NUM
+		     , A.FAQ_POST_TITLE
+		     , A.FAQ_POST_CONTENT
+		  FROM FAQ A
+		 WHERE A.POST_NUM = ?
+	</entry>
+	<entry key="selectQNATotalCount">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectQNATotalCount() */
+		       COUNT(*)
+		  FROM QNA A
+		 WHERE MEM_NUM = ?
+	</entry>
+	<entry key="selectQNAList">
+		 SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectQNAList() */
+		         A.RNUM
+		       , A.POST_NUM
+		       , A.MEM_NAME
+		       , A.QNA_TITLE
+		       , A.QNA_OPEN_YN
+		       , A.QNA_ANSWER_YN
+		       , A.QNA_DATE
+		       , A.QNA_CONTENT
+		    FROM (SELECT ROWNUM RNUM
+		              , B.POST_NUM
+		              , B.MEM_NAME
+		              , B.QNA_TITLE
+		              , B.QNA_OPEN_YN
+		              , B.QNA_ANSWER_YN
+		              , B.QNA_DATE
+		              , B.QNA_CONTENT
+		            FROM (SELECT C.POST_NUM
+		 		             , D.MEM_NAME
+		 		             , C.QNA_TITLE
+		 		             , C.QNA_OPEN_YN
+		 		             , C.QNA_ANSWER_YN
+		 		             , C.QNA_DATE
+		                      , C.QNA_CONTENT
+		 		          FROM QNA C
+		                  JOIN MEM_INFO D ON (D.MEM_NUM = C.MEM_NUM)
+		 		         WHERE C.MEM_NUM = ?
+		 		         ORDER BY C.POST_NUM DESC
+		                 ) B
+		         ) A
+		  WHERE A.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectQnaDetail">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectQnaDetail() */
+		       C.POST_NUM
+		     , D.MEM_NAME
+		     , C.QNA_TITLE
+		     , C.QNA_OPEN_YN
+		     , C.QNA_ANSWER_YN
+		     , C.QNA_DATE
+		     , C.QNA_CONTENT
+		  FROM QNA C
+		  JOIN MEM_INFO D ON (D.MEM_NUM = C.MEM_NUM)
+		 WHERE C.MEM_NUM = ?
+		   AND C.POST_NUM = ?
+	</entry>
+	<entry key="selectQnaReplyList">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectQnaReplyList() */
+		       C.REPLY_NUM
+		     , C.POST_NUM
+		     , C.REPLY_DATE
+		     , D.MEM_NAME
+		     , C.REPLY_CONTENT
+          FROM QNA_REPLY C
+		  JOIN MEM_INFO D ON (D.MEM_NUM = C.MEM_NUM)
+		 WHERE C.POST_NUM = ?
+		 ORDER BY C.REPLY_NUM DESC
+	</entry>
+	<entry key="insertQnaReply">
+		INSERT /* com.lastbug.firstbook.member.model.dao.MemberDAO#insertQnaReply() */
+		  INTO QNA_REPLY A
+		(
+		  A.REPLY_NUM
+		, A.POST_NUM
+		, A.REPLY_DATE
+		, A.MEM_NUM
+		, A.REPLY_CONTENT
+		)
+		VALUES
+		(
+  		  SEQ_QNA_REPLY_NO.NEXTVAL
+		, ?
+		, SYSDATE
+		, ?
+		, ?
+		)
+	</entry>
+	<entry key="insertQNA">
+		INSERT /* com.lastbug.firstbook.member.model.dao.MemberDAO#insertQNA() */
+		  INTO QNA A
+		(
+		  A.POST_NUM
+		, A.MEM_NUM
+		, A.QNA_TITLE
+		, A.QNA_DATE
+		, A.QNA_CONTENT
+		)
+		VALUES
+		(
+		  SEQ_QNA_NO.NEXTVAL
+		, ?
+		, ?
+		, SYSDATE
+		, ?
+		)
+	</entry>
+	<entry key="insertCoin">
+		INSERT /* com.lastbug.firstbook.member.model.dao.MemberDAO#insertCoin() */
+		  INTO COIN_CHARGE A
+		(
+		  A.COIN_CHARGE_NUM
+		, A.MEM_NUM
+		, A.COIN_CHARGE_DATE
+		, A.COIN_CHARGE_COUNT
+		, A.COIN_CHARGE_TOTAL
+		, A.WEEKLY_COIN_YN
+		)
+		VALUES
+		(
+		  SEQ_CHARGE_NO.NEXTVAL
+		, ?
+		, SYSDATE
+		, ?
+		, ?
+		, 'N'
+		)
+	</entry>
+	<entry key="insertFreeCoin">
+		INSERT /* com.lastbug.firstbook.member.model.dao.MemberDAO#insertFreeCoin() */
+		  INTO COIN_CHARGE A
+		(
+		  A.COIN_CHARGE_NUM
+		, A.MEM_NUM
+		, A.COIN_CHARGE_DATE
+		, A.COIN_CHARGE_COUNT
+		, A.COIN_CHARGE_TOTAL
+		, A.WEEKLY_COIN_YN
+		)
+		VALUES
+		(
+		  SEQ_CHARGE_NO.NEXTVAL
+		, ?
+		, SYSDATE
+		, 20
+		, NULL
+		, 'Y'
+		)
+	</entry>
+	<entry key="updateCoinCharge">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#updateCoinCharge() */
+		       MEM_INFO A
+		   SET A.MEM_COIN = A.MEM_COIN + ?
+		 WHERE A.MEM_NUM = ?
+	</entry>
+	<entry key="selectCoinCharge">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#selectCoinCharge() */
+		       A.COIN_CHARGE_NUM
+		     , A.MEM_NUM
+		     , A.COIN_CHARGE_DATE
+		     , A.COIN_CHARGE_COUNT
+		     , A.COIN_CHARGE_TOTAL
+		     , A.WEEKLY_COIN_YN
+		  FROM COIN_CHARGE A
+		 WHERE MEM_NUM = ?
+	</entry>
+	<entry key="searchId">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#searchId() */
+		       A.MEM_NUM
+		     , A.MEM_NAME
+		     , A.MEM_ID
+		     , A.MEM_PWD
+		     , A.MEM_EMAIL
+		     , A.MEM_ADDRESS
+		     , A.MEM_BIRTHDATE
+		     , A.MEM_LOGIN_COUNT
+		     , A.MEM_COIN
+		     , A.MEM_CAN_VOTE_YN
+		     , A.MEM_WITHDRAW_YN
+		     , A.MEM_WITHDRAW_DATE
+		     , A.MEM_CLASS
+		     , A.MEM_BLOCK_YN
+		     , A.MEM_BLOCK_DATE
+		     , A.MEM_ENROLL_DATE
+		     , A.MEM_WEEKLY_COIN_YN
+		  FROM MEM_INFO A
+		 WHERE A.MEM_WITHDRAW_YN = 'N'
+		   AND A.MEM_NAME = ?
+		   AND A.MEM_EMAIL = ?
+	</entry>
+	<entry key="searchPwd">
+		SELECT /* com.lastbug.firstbook.member.model.dao.MemberDAO#searchPwd() */
+		       A.MEM_NUM
+		     , A.MEM_NAME
+		     , A.MEM_ID
+		     , A.MEM_PWD
+		     , A.MEM_EMAIL
+		     , A.MEM_ADDRESS
+		     , A.MEM_BIRTHDATE
+		     , A.MEM_LOGIN_COUNT
+		     , A.MEM_COIN
+		     , A.MEM_CAN_VOTE_YN
+		     , A.MEM_WITHDRAW_YN
+		     , A.MEM_WITHDRAW_DATE
+		     , A.MEM_CLASS
+		     , A.MEM_BLOCK_YN
+		     , A.MEM_BLOCK_DATE
+		     , A.MEM_ENROLL_DATE
+		     , A.MEM_WEEKLY_COIN_YN
+		  FROM MEM_INFO A
+		 WHERE A.MEM_WITHDRAW_YN = 'N'
+		   AND A.MEM_NAME = ?
+		   AND A.MEM_ID = ?
+		   AND A.MEM_EMAIL = ?
+	</entry>
+	<entry key="updatePassword">
+		UPDATE /* com.lastbug.firstbook.member.model.dao.MemberDAO#updatePassword() */
+		       MEM_INFO A
+		   SET A.MEM_PWD = ?
+		 WHERE A.MEM_ID =?
+	</entry>
+
+	
+</properties>
+

@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllNovel">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#seletAllNovel() */
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.WEB_NOV_INFORM
+             , A.CATEGORY_CODE
+             , A.WEB_NOV_PUBLISHER
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_IMG_LOCATION
+             , A.FINISHED_OR_NOT
+             , A.WEB_NOV_IS_OPEN
+          FROM WEB_NOV_INFO A
+         ORDER BY A.WEB_NOV_COUNT DESC
+	</entry>
+	<entry key="selectWebNovelDetail">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectWebNovelDetail() */
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_INFORM
+             , A.WEB_NOV_IMG_LOCATION
+             , B.CATEGORY_NAME
+          FROM WEB_NOV_INFO A
+          JOIN GENRE_CATEGORY B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+         WHERE A.WEB_NOV_NUM = ?
+	</entry>
+	<entry key="selectWebNovelallChapter">
+		SELECT  	/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectWebNovelallChapter() */
+		       A.WEB_NOV_NUM
+		     , A.CHAP_NUM
+		     , A.CHAP_WRITTEN_DATE
+		     , A.CHAP_READABLE
+		     , A.CHAP_PER_PRICE
+		     , A.CHAP_PER_IS_USED
+		     , A.CHAP_PER_TITLE
+		  FROM WEB_NOV_CHAP_SEARCH A
+		  JOIN WEB_NOV_INFO B ON (A.WEB_NOV_NUM = B.WEB_NOV_NUM)
+		  JOIN WEB_NOV_CHAP_NUM C ON (A.CHAP_NUM = C.CHAP_NUM)
+		 WHERE B.WEB_NOV_NUM = ?
+		  AND A.CHAP_NUM <![CDATA[ <  ]]> 5
+		 ORDER BY A.CHAP_NUM ASC
+	</entry>
+	<entry key="selectWebNovelallChapterNotFree">
+		SELECT  	/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectWebNovelallChapterNotFree() */
+		       A.WEB_NOV_NUM
+		     , A.CHAP_NUM
+		     , A.CHAP_WRITTEN_DATE
+		     , A.CHAP_READABLE
+		     , A.CHAP_PER_PRICE
+		     , A.CHAP_PER_IS_USED
+		     , A.CHAP_PER_TITLE
+		  FROM WEB_NOV_CHAP_SEARCH A
+		  JOIN WEB_NOV_INFO B ON (A.WEB_NOV_NUM = B.WEB_NOV_NUM)
+		  JOIN WEB_NOV_CHAP_NUM C ON (A.CHAP_NUM = C.CHAP_NUM)
+		 WHERE B.WEB_NOV_NUM = ?
+		   AND A.CHAP_NUM > 5
+		 ORDER BY A.CHAP_NUM ASC
+	</entry>
+	<entry key="searchWebNovelCount">
+	    SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#searchWebNovelCount() */
+               COUNT(*)
+          FROM WEB_NOV_CONTENT_DETAIL A
+         WHERE A.WEB_NOV_NUM = ?
+           AND A.CHAP_NUM = ?
+	</entry>
+	
+	<entry key="selectPerChap">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectPerChap()*/
+               C.WEB_NOV_NUM
+             , C.CHAP_NUM
+             , C.WEB_NOV_PAGE_NUM
+             , C.WEB_NOV_PAGE_CONTENT
+          FROM (SELECT ROWNUM RNUM
+                     , WEB_NOV_NUM
+                     , CHAP_NUM
+                     , WEB_NOV_PAGE_NUM
+                     , WEB_NOV_PAGE_CONTENT
+                  FROM (SELECT 
+                               A.WEB_NOV_NUM
+                             , A.CHAP_NUM
+                             , A.WEB_NOV_PAGE_NUM
+                             , A.WEB_NOV_PAGE_CONTENT
+                          FROM WEB_NOV_CONTENT_DETAIL A
+                         ORDER BY A.WEB_NOV_PAGE_NUM ASC
+                      ) B
+                 WHERE B.WEB_NOV_NUM = ?
+                   AND B.CHAP_NUM = ?
+              ) C
+       WHERE C.RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="searchTitle">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#searchTitle() */
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_INFORM
+             , B.CATEGORY_NAME
+          FROM WEB_NOV_INFO A
+          JOIN GENRE_CATEGORY B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+         WHERE A.WEB_NOV_NUM = ?	
+	</entry>
+	<entry key="incrementWebnovelCount">
+	    UPDATE 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#incrementWebnovelCount() */
+               WEB_NOV_INFO A
+       SET A.WEB_NOV_COUNT = (SELECT B.WEB_NOV_COUNT
+                              FROM WEB_NOV_INFO B
+                             WHERE B.WEB_NOV_NUM = ?
+                           ) + 1
+     WHERE A.WEB_NOV_NUM = ?
+	</entry>
+	<entry key="searchWebNovelCount">
+	    SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#searchWebNovelCount() */
+               COUNT(*)
+          FROM WEB_NOV_CONTENT_DETAIL A
+         WHERE A.WEB_NOV_NUM = ?
+           AND A.CHAP_NUM = ?
+	</entry>
+	<entry key="selectTotalCount">
+	    SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectTotalCount() */
+	           COUNT(*)
+	      FROM WEB_NOV_INFO
+	</entry>
+	<entry key="selectTotalChapter">
+	    SELECT  	/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectTotalChapter() */
+               COUNT(*)
+          FROM WEB_NOV_CHAP_SEARCH
+         WHERE WEB_NOV_NUM = ?
+	</entry>
+	<entry key="selectPerChapCoin">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectPerChapCoin() */
+               A.CHAP_PER_PRICE
+          FROM WEB_NOV_CHAP_SEARCH A
+         WHERE WEB_NOV_NUM = ?
+           AND CHAP_NUM = ?
+	</entry>
+	<entry key="updateChap">
+        UPDATE  		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#updateChap() */
+               WEB_NOV_CHAP_SEARCH A
+           SET A.CHAP_PER_IS_USED = 'Y'
+         WHERE A.WEB_NOV_NUM = ?
+           AND A.CHAP_NUM = ?
+	</entry>
+	<entry key="selectAllReply">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectAllReply() */
+               A.REPLY_NUM
+             , A.WEB_NOV_NUM
+             , A.REPLY_DATE
+             , A.MEM_NUM
+             , A.REPLY_CONTENT
+          FROM WEB_NOV_REPLY A
+          ORDER BY A.REPLY_NUM DESC
+	</entry>
+	<entry key="selectWebnovReply">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectWebnovReply() */
+              A.REPLY_NUM
+            , A.WEB_NOV_NUM
+            , B.MEM_ID
+            , A.REPLY_DATE
+            , A.MEM_NUM
+            , A.REPLY_CONTENT
+         FROM WEB_NOV_REPLY A
+         JOIN MEM_INFO B ON(A.MEM_NUM = B.MEM_NUM)
+        WHERE WEB_NOV_NUM = ?
+        ORDER BY A.REPLY_NUM DESC
+	</entry>
+	<entry key="insertReply">
+       INSERT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#insertReply() */
+         INTO  WEB_NOV_REPLY A
+        (
+          REPLY_NUM
+        , WEB_NOV_NUM
+        , REPLY_DATE
+        , MEM_NUM
+        , REPLY_CONTENT
+        )
+     VALUES
+       (
+          SEQ_WEB_NOV_REPLY.NEXTVAL
+        , ?
+        , SYSDATE
+        , ?
+        , ?
+       )
+	</entry>
+	<entry key="replydata">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#replydata() */
+               A.REPLY_NUM
+             , A.WEB_NOV_NUM
+             , B.MEM_ID
+             , A.REPLY_DATE
+             , A.REPLY_CONTENT
+          FROM WEB_NOV_REPLY A
+          JOIN MEM_INFO B ON(A.MEM_NUM = B.MEM_NUM)
+         WHERE WEB_NOV_NUM = ?
+           AND B.MEM_NUM = ?
+         ORDER BY A.REPLY_NUM DESC
+	</entry>
+	<entry key="selectFinishedAllNovel">
+        SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectFinishedAllNovel() */
+               A.WEB_NOV_NUM
+             , A.WEB_NOV_TITLE
+             , A.WEB_NOV_AUTHOR
+             , A.WEB_NOV_INFORM
+             , A.CATEGORY_CODE
+             , A.WEB_NOV_PUBLISHER
+             , A.DAY_OF_WEEK
+             , A.WEB_NOV_IMG_LOCATION
+             , A.FINISHED_OR_NOT
+             , A.WEB_NOV_IS_OPEN
+          FROM WEB_NOV_INFO A
+         WHERE A.DAY_OF_WEEK = '완'	
+         ORDER BY A.WEB_NOV_COUNT DESC
+	</entry>
+	<entry key="deleteReply">
+	    DELETE  	/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#deleteReply() */
+          FROM WEB_NOV_REPLY
+         WHERE REPLY_NUM = ?
+	</entry>
+	<entry key="replydata_delete">
+       SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#replydata_delete() */
+              A.REPLY_NUM
+            , A.WEB_NOV_NUM
+            , B.MEM_ID
+            , A.REPLY_DATE
+            , A.REPLY_CONTENT
+         FROM WEB_NOV_REPLY A
+         JOIN MEM_INFO B ON(A.MEM_NUM = B.MEM_NUM)
+        WHERE A.WEB_NOV_NUM = ?
+          AND B.MEM_NUM = ?
+        ORDER BY A.REPLY_NUM DESC
+	</entry>
+	<entry key="TopNovel">
+         <![CDATA[
+         SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#selectAllNovel() */
+                *
+           FROM (SELECT
+                        *
+                   FROM WEB_NOV_INFO 
+                  ORDER BY WEB_NOV_COUNT DESC
+                )
+          WHERE ROWNUM <= 4
+          ]]>
+	</entry>
+		<entry key="updateWishList">
+	INSERT
+	  INTO WISH_LIST
+	  (
+	  WEB_NOV_NUM, MEM_NUM, WISHLIST_DATE
+	  )
+	  VALUES
+	  (?, ?, SYSDATE)
+    </entry>
+
+    <entry key="selectMemPoint">
+    SELECT
+    A.MEM_COIN
+    FROM MEM_INFO A
+    WHERE A.MEM_ID = ?
+    </entry>
+
+	<entry key="deleteWishList">
+	DELETE
+	  FROM WISH_LIST
+	 WHERE WEB_NOV_NUM = ?
+	   AND MEM_NUM = ?
+	</entry>
+
+	<entry key="updateCoin">
+	UPDATE
+	       MEM_INFO A
+	   SET A.MEM_COIN = ?
+	 WHERE A.MEM_ID = ?
+	</entry>
+	<entry key="insertPaidHistory">
+		INSERT
+	      INTO COIN_USE_HIS
+         (
+               COIN_USE_NUM
+             , WEB_NOV_NUM
+             , MEM_NUM
+             , COIN_USE_DATE
+             , COIN_USAGE
+             , CHAPTER_NUM
+         )
+        VALUES
+        (
+          SEQ_COIN_USE_HIS.NEXTVAL
+        , ?
+        , ?
+        , SYSDATE
+        , ?
+        , ?
+        )
+	</entry>
+	<entry key="finishedselectMemPoint">
+        SELECT
+               A.MEM_COIN
+          FROM MEM_INFO A
+         WHERE A.MEM_ID = ?
+    </entry>
+    <entry key="finishedselectPerChapCoin">
+       SELECT 		/* com.lastbug.firstbook.webnovel.model.dao.WebNovelDAO#finishedselectPerChapCoin() */
+              A.CHAP_PER_PRICE
+         FROM WEB_NOV_CHAP_SEARCH A
+        WHERE WEB_NOV_NUM = ?
+          AND CHAP_NUM = ?
+   </entry> 
+	<entry key="finishedinsertPaidHistory">
+		INSERT
+	      INTO COIN_USE_HIS
+         (
+               COIN_USE_NUM
+             , WEB_NOV_NUM
+             , MEM_NUM
+             , COIN_USE_DATE
+             , COIN_USAGE
+             , CHAPTER_NUM
+         )
+        VALUES
+        (
+          SEQ_COIN_USE_HIS.NEXTVAL
+        , ?
+        , ?
+        , SYSDATE
+        , ?
+        , ?
+        )
+	</entry>
+</properties>
+
+
+
+
+
+
+
+
+
+
+
+

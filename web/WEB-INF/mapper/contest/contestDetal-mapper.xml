@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectContestDetal">
+	  		SELECT /* com.lastbug.firstbook.contest.model.dao.ContestDetalDAO#selectContestDetal()*/
+	  		       C.*
+ 	  		  FROM COMPET_DETAIL C
+ 	  	   	 WHERE COMPET_NUM = ?
+	</entry>
+	<entry key="selectContestList">
+	  		SELECT /* com.lastbug.firstbook.contest.model.dao.ContestDetalDAO#selectContestList()*/
+       	           C.*
+              FROM COMPET_INFO C
+             WHERE COMPET_NUM = ?
+               AND COMPET_ACT_YN = 'Y'
+	</entry>
+	<entry key="selectMemberList">
+	         SELECT /* com.lastbug.firstbook.contest.model.dao.ContestDetalDAO#selectMemberList()*/
+      	            M.*
+      	       FROM COMPET_INFO C
+      	       JOIN MEM_INFO M ON(C.MEM_NUM = M.MEM_NUM)
+      	      WHERE COMPET_NUM = ?
+	</entry>
+	<entry key="selectCategory">
+	         SELECT /* com.lastbug.firstbook.contest.model.dao.ContestDetalDAO#selectCategory()*/
+                    M.*
+               FROM COMPET_INFO C
+               JOIN GENRE_CATEGORY M ON(C.CATEGORY_CODE = M.CATEGORY_CODE)
+              WHERE COMPET_NUM = ?
+	</entry>
+	<entry key="votingN">
+	         UPDATE MEM_INFO /* com.lastbug.firstbook.contest.model.dao.VotingYNDAO#votingN()*/
+                SET MEM_CAN_VOTE_YN = 'N'
+              WHERE MEM_ID = ?
+	</entry>
+	<entry key="count">
+	         UPDATE COMPET_INFO /* com.lastbug.firstbook.contest.model.dao.VotingYNDAO#count()*/
+                SET SCORE = (SELECT
+                                    SCORE
+                               FROM COMPET_INFO
+                              WHERE COMPET_NUM = ?
+                            ) + 1
+              WHERE COMPET_NUM = ?
+	</entry>
+	<entry key="selectView">
+               SELECT /* com.lastbug.firstbook.contest.model.dao.SelectViewDAO#selectView()*/
+                      *
+                 FROM COMPET_DETAIL
+                WHERE CHAPTER_NUM = ?
+                  AND COMPET_NUM = ?
+                  
+	</entry>
+	<entry key="selectContestList">
+               SELECT /* com.lastbug.firstbook.contest.model.dao.SelectViewDAO#selectContestList()*/ 
+      				  *
+                 FROM COMPET_INFO
+                WHERE COMPET_NUM = ?
+	</entry>
+	<entry key="selectViewPages">
+               SELECT /* com.lastbug.firstbook.contest.model.dao.SelectViewDAO#"selectViewPage"()*/ 	
+                      *
+                 FROM COMPET_CONTENT
+                WHERE NUMBER_OF_PAGES = ?
+                  AND PAGES = ?
+	</entry>
+	<entry key="pageNubmer">
+               SELECT /* com.lastbug.firstbook.contest.model.dao.SelectViewDAO#"selectViewPage"()*/ 	
+                      *
+                 FROM COMPET_CONTENT
+                WHERE NUMBER_OF_PAGES = ?
+	</entry>
+	
+	
+	
+
+</properties>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

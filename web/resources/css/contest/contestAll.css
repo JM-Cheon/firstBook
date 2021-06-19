@@ -1,0 +1,19 @@
+
+
+
+.section1{width: 100%; height: 2700px;}
+.section1_bg{background:#c69c6d; width: 100%; height: 1000px;}
+.section1_main{ width: 1100px; height: 1000px; margin: 0 auto; background: url("/firstbook/resources/image/contest/contestAll.jpg") no-repeat 50% 50%;}
+.section1_content_head{width: 1100px; height: 100px;  margin: 0 auto; text-align: center;}
+.section1_h1 { color:#ED1C24; font-family: 'Malgun Gothic'; font-size:40px; font-weight:700; line-height: 100px;}
+.section1_content{width: 1100px; height: 300px;  margin: 0 auto; }
+.font_size{ color:#fff; line-height: 120px; font-size:25px;}
+.on{float:left; width: 165px; height: 165px; background: url("/firstbook/resources/image/contest/on.jpg") no-repeat 50% 50%; text-align: center; }
+.off{float:left; width: 165px; height: 165px; background: url("/firstbook/resources/image/contest/off.jpg") no-repeat 50% 50%; text-align: center;  }
+.label_none{display:none;}
+
+.section1_fild{width: 950px;  margin: 0 auto;}
+.work { height:270px; float: left; margin-left: 90px; width: 125px; font-family: 'Malgun Gothic'; font-size:15px; line-height: 20px; }
+.work_button {background: #474747; width: 80px; height: 35px; color: white; font-size: 15px;}
+.work_title{height:40px;}
+

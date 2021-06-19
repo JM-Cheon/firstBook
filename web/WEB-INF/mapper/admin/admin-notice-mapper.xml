@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="NoticeModify">
+	       UPDATE NOTICE
+			  SET NOTICE_NAME = ? , NOTICE_CONTENT = ?
+			WHERE NOTICE_NUM = ?
+	
+	</entry>
+	<entry key="NoticeActDeactive">
+		  UPDATE
+		       NOTICE A
+		   SET A.NOTICE_STATUS = ?		    
+		 WHERE A.NOTICE_NUM = ?	
+	</entry>
+	
+	<entry key="selectNoticeList">
+		SELECT
+		       A.RNUM
+		     , A.NOTICE_NUM
+		     , A.NOTICE_DATE
+		     , A.NOTICE_NAME
+		     , A.NOTICE_VIEW_COUNT
+		     , A.NOTICE_CONTENT
+		     , A.NOTICE_STATUS
+		  FROM (SELECT ROWNUM RNUM
+		             , B.NOTICE_NUM
+		             , B.NOTICE_DATE
+		             , B.NOTICE_NAME
+		             , B.NOTICE_VIEW_COUNT
+		             , B.NOTICE_CONTENT
+		             , B.NOTICE_STATUS
+		          FROM (SELECT C.NOTICE_NUM
+				             , C.NOTICE_DATE
+				             , C.NOTICE_NAME
+				             , C.NOTICE_VIEW_COUNT
+				             , C.NOTICE_CONTENT
+				             , C.NOTICE_STATUS
+				          FROM NOTICE C				         
+				         ORDER BY C.NOTICE_NUM DESC
+		               ) B
+		       ) A
+		 WHERE A.RNUM BETWEEN ? AND ?
+	</entry>
+	
+	
+</properties>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
